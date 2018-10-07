@@ -1,0 +1,32 @@
+<div class="weather-content">
+
+  <div class="weather-content__current-weather" *ngFor="let item of weatherList">
+    <p>{{ item.description | titlecase }}</p>
+    <img src="{{imageSource}}">
+  </div>
+
+  <div class="weather-content__5day">
+      <div class="weather-content__5day__day" *ngFor="let item of weatherList">
+            <p>{{ item.description | titlecase }}</p>
+            <br><br>
+            <img src="{{imageSource}}">
+      </div>
+      <div class="weather-content__5day__day" *ngFor="let item of weatherList">
+            <p>{{ item.description | titlecase }}</p>
+            <img src="{{imageSource}}">
+      </div>
+      <div class="weather-content__5day__day" *ngFor="let item of weatherList">
+            <p>{{ item.description | titlecase }}</p>
+            <img src="{{imageSource}}">
+      </div>
+      <div class="weather-content__5day__day" *ngFor="let item of weatherList">
+            <p>{{ item.description | titlecase }}</p>
+            <img src="{{imageSource}}">
+      </div>
+      <div class="weather-content__5day__day" *ngFor="let item of weatherList">
+            <p>{{ item.description | titlecase }}</p>
+            <img src="{{imageSource}}">
+      </div>
+  </div>
+
+</div>

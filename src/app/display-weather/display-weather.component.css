@@ -1,0 +1,90 @@
+.weather-content {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 20% 40% 40%;
+    grid-template-areas: "current"
+                         "fiveday"
+                         "fiveday"; 
+}
+
+.weather-content__current-weather {
+    grid-area: current;
+    width: 100%;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.weather-content__5day {
+    grid-area: fiveday;
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-around; */
+}
+
+/* Sytle for each day in the 5 day forecast */
+.weather-content__5day__day {
+    width: 100%;
+    background-color: lightblue;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.weather-content__5day__day img {
+    width: 50px;
+}
+
+
+
+/* This is the desktop style */
+@media (min-width: 40rem) {
+    .weather-content {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 30% 70%;
+        grid-template-areas: "current"
+                             "fiveday"; 
+        /* display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        margin: 0; */
+    }
+
+    .weather-content__current-weather {
+        grid-area: current;
+        width: 100%; 
+        padding: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .weather-content__5day {
+        /* height: 70%; */
+        grid-area: fiveday;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 1rem;
+        justify-content: center;
+    }
+    
+    /* Sytle for each day in the 5 day forecast */
+    .weather-content__5day__day {
+        background-color: lightblue;
+        border: 1px solid black;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5rem;
+        width: auto;
+    }
+}
