@@ -6,27 +6,69 @@
   </div>
 
   <div class="weather-content__5day">
-      <div class="weather-content__5day__day" *ngFor="let item of weatherList">
-            <p>{{ item.description | titlecase }}</p>
-            <br><br>
-            <img src="{{imageSource}}">
-      </div>
-      <div class="weather-content__5day__day" *ngFor="let item of weatherList">
-            <p>{{ item.description | titlecase }}</p>
-            <img src="{{imageSource}}">
-      </div>
-      <div class="weather-content__5day__day" *ngFor="let item of weatherList">
-            <p>{{ item.description | titlecase }}</p>
-            <img src="{{imageSource}}">
-      </div>
-      <div class="weather-content__5day__day" *ngFor="let item of weatherList">
-            <p>{{ item.description | titlecase }}</p>
-            <img src="{{imageSource}}">
-      </div>
-      <div class="weather-content__5day__day" *ngFor="let item of weatherList">
-            <p>{{ item.description | titlecase }}</p>
-            <img src="{{imageSource}}">
-      </div>
+    <div class="weather-content__5day__day" *ngFor="let item of fiveDayList">
+      <p>{{ item.dt_txt | formatDate }}</p>
+      <p>Temperature: {{ item.main.temp }}</p>
+      <p>Outlook: {{ item.weather[0].main }}</p>
+      <img src="{{imageSource}}">
+      <P>Windspeed: {{ item.wind.speed }}</P>
+    </div>
+
+    <div class="weather-content__5day__day" *ngFor="let item of fiveDayList">
+      <p>{{ item.dt_txt | formatDate }}</p>
+      <p>Temperature: {{ item.main.temp }}</p>
+      <p>Outlook: {{ item.weather[0].main }}</p>
+      <img src="{{imageSource}}">
+      <P>Windspeed: {{ item.wind.speed }}</P>
+    </div>
+
+    <div class="weather-content__5day__day" *ngFor="let item of fiveDayList">
+      <p>{{ item.dt_txt | formatDate }}</p>
+      <p>Temperature: {{ item.main.temp }}</p>
+      <p>Outlook: {{ item.weather[0].main }}</p>
+      <img src="{{imageSource}}">
+      <P>Windspeed: {{ item.wind.speed }}</P>
+    </div>
+
+    <div class="weather-content__5day__day" *ngFor="let item of fiveDayList">
+      <p>{{ item.dt_txt | formatDate }}</p>
+      <p>Temperature: {{ item.main.temp }}</p>
+      <p>Outlook: {{ item.weather[0].main }}</p>
+      <img src="{{imageSource}}">
+      <P>Windspeed: {{ item.wind.speed }}</P>
+    </div>
+
+    <div class="weather-content__5day__day" *ngFor="let item of fiveDayList">
+      <p>{{ item.dt_txt | formatDate }}</p>
+      <p>Temperature: {{ item.main.temp }}</p>
+      <p>Outlook: {{ item.weather[0].main }}</p>
+      <img src="{{imageSource}}">
+      <P>Windspeed: {{ item.wind.speed }}</P>
+    </div>
   </div>
+
+
+  <!-- <div class="weather-content__5day">
+      <div class="weather-content__5day__day" *ngFor="let item of weatherList">
+            <p>{{ item.description | titlecase }}</p>
+            <img src="{{imageSource}}">
+      </div>
+      <div class="weather-content__5day__day" *ngFor="let item of weatherList">
+            <p>{{ item.description | titlecase }}</p>
+            <img src="{{imageSource}}">
+      </div>
+      <div class="weather-content__5day__day" *ngFor="let item of weatherList">
+            <p>{{ item.description | titlecase }}</p>
+            <img src="{{imageSource}}">
+      </div>
+      <div class="weather-content__5day__day" *ngFor="let item of weatherList">
+            <p>{{ item.description | titlecase }}</p>
+            <img src="{{imageSource}}">
+      </div>
+      <div class="weather-content__5day__day" *ngFor="let item of weatherList">
+            <p>{{ item.description | titlecase }}</p>
+            <img src="{{imageSource}}">
+      </div>
+  </div> -->
 
 </div>
