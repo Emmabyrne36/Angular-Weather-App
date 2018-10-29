@@ -21,8 +21,8 @@
       <div id='myMap'></div>
   </div>
   <div class="main-container__main">
-    <!-- <app-display-weather *ngIf="resultsFound"></app-display-weather> -->
-    <app-display-weather></app-display-weather>
+    <app-display-weather *ngIf="resultsFound" [cityName]="cityName"></app-display-weather>
+    <!-- <app-display-weather></app-display-weather> -->
   </div>
   <div class="main-container__footer">footer</div>
 </div>

@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { WeatherForecast } from '../weatherData';
 import { FiveDayForecast } from '../fiveDayData';
+import { DataService } from '../data.service';
+import { FiveDay, Forecast } from '../fiveDay';
 
 @Component({
   selector: 'app-display-weather',
@@ -8,38 +10,34 @@ import { FiveDayForecast } from '../fiveDayData';
   styleUrls: ['./display-weather.component.css']
 })
 export class DisplayWeatherComponent implements OnInit {
+  // Create input property here so the name of the city gets passed in
+  @Input() cityName: string;
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   weatherList = WeatherForecast.weather;
   imageSource = 'http://openweathermap.org/img/w/' + this.weatherList[0].icon + '.png';
 
   fiveDayList = FiveDayForecast.list;
+  newFiveDayList: Forecast[];
+  threeHourList: FiveDay[];
 
   ngOnInit() {
-    // this.parseDate();
+    console.log(this.cityName);
+    // Call the detailed forecast
+    this.dataService.getWeatherForecast(this.cityName).subscribe(res => {
+      this.newFiveDayList = res.list;
+      console.log(this.newFiveDayList);
+    }, error => {
+      console.error(error);
+    });
   }
 
-  parseDate() {
-    // const firstDate = new Date( 'January 01, 1970 00:00:00');
-    // console.log(firstDate.getDate());
-    const dateToParse = '2018-10-15 18:00:00';
-    const parsedDate = new Date(dateToParse);
-    // console.log(parsedDate1);
-    // const parsedDate = Date.parse(dateToParse);
-    // console.log(dateToParse);
-    // console.log(parsedDate1.getDate());
-    // console.log(parsedDate1.getTime());
-    // console.log(parsedDate1.getUTCHours());
-    // console.log(parsedDate1.getUTCDate());
-    // console.log(parsedDate1.getUTCDay());
-    // console.log(parsedDate1.getUTCFullYear());
-    // console.log(parsedDate1.getUTCMonth());
-
-    // these ones are good
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    console.log(parsedDate.toLocaleDateString('en-UK', options));
-    console.log(parsedDate.toLocaleTimeString('en-UK', options));
+  // Get just the 5 day data
+  parseFiveDayData(forecastList: FiveDay[]): void {
+    // Iterate through the array backwards - skip 8 each time
+    // for (let i = forecastList.length - 1; i >= 0; i-=8) {
+      
+    // }
   }
-
 }

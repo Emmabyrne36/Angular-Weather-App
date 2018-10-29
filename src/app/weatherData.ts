@@ -1,6 +1,10 @@
 import { Weather, Coord } from './weather';
 
 export const WeatherForecast: Weather = {
+    coord: {
+        lon: 53.35,
+        lat: -6.26
+    },
     weather: [{
         id: 310,
         main: 'Drizzle',

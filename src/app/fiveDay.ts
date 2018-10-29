@@ -24,7 +24,6 @@ export interface Forecast {
     weather: Weather[];
     wind:    Wind;
     dt_txt: string;
-    // rain?:   Rain;
 }
 
 export interface Clouds {
@@ -44,15 +43,6 @@ export interface MainClass {
 
 export interface Rain {
     '3h'?: number;
-}
-
-export interface Sys {
-    pod: Pod;
-}
-
-export enum Pod {
-    D = 'd',
-    N = 'n',
 }
 
 export interface Weather {
