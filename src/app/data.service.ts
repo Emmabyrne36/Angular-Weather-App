@@ -12,7 +12,7 @@ export class DataService {
   // This service will send the request to the api to get the weather info
   // Store the result in an interface for easy access
   private forecastApi = 'http://api.openweathermap.org/data/2.5/forecast?q={0}&units=metric&appid=2a6b039347e89fe17b581588ad3de04b';
-  private apiKey = `http://api.openweathermap.org/data/2.5/weather?q={0},ie&units=metric&appid=1e208743817cda8da859d4478014cf83`;
+  private apiKey = `http://api.openweathermap.org/data/2.5/weather?q={0}&units=metric&appid=1e208743817cda8da859d4478014cf83`;
 
   constructor(private http: HttpClient) { }
 

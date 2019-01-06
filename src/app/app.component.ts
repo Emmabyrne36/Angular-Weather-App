@@ -39,6 +39,10 @@ export class AppComponent implements OnInit {
     // get the city value inputted by the user and convert it to titlecase - trim it to ensure no trailing whitespace affects API call
     this.cityName = this.toTitleCase(this.cityForm.value.userData.city).trim();
     // Call the dataService to make a call to the weather API and store the results
+    this.getWeatherForecast();
+  }
+
+  getWeatherForecast() {
     this.dataService.getCurrentWeather(this.cityName).subscribe(res => {
       this.weatherResult = res;
       this.lat = res.coord.lat;
@@ -46,8 +50,12 @@ export class AppComponent implements OnInit {
       this.weatherSnapshot = [this.weatherResult.main.temp.toString(), this.weatherResult.weather[0].main];
 
       // updateMapPushPin(this.lat, this.lon, this.cityName, this.weatherSnapshot); // update the position of the map and the pushpin
-      this.resultsFound = true; // to display the data as there is no error
-      console.log(this.resultsFound);
+      if (this.resultsFound) {
+        // Just refresh the data
+        // TODO - call method from display weather component to refresh the weather data
+      } else {
+        this.resultsFound = true; // to display the data as there is no error
+      }
     }, error => {
       console.error(error);
       alert('There was an error finding weather data for city: ' + this.cityName + '\nPlease try again');

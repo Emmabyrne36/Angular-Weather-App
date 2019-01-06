@@ -1,6 +1,7 @@
-import { FiveDay, MainEnum, Description } from './fiveDay';
+import { MainEnum, Description } from './fiveDay';
+import { FiveDayOld } from './fiveDayOld';
 
-export const FiveDayForecast: FiveDay = {
+export const FiveDayForecast: FiveDayOld = {
     list: [{
         dt: 1539626400,
         main: {
