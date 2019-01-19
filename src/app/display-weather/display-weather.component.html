@@ -1,18 +1,18 @@
-<div class="weather-content">
-
-  <div class="weather-content__current-weather" *ngFor="let item of weatherList">
-    <p>{{ item.description | titlecase }}</p>
-    <img src="{{imageSource}}">
+<div class="weather-content" *ngIf="displayData">
+  <div class="weather-content__current-weather">
+    <h6>Current weather: </h6>
+    <p>{{ currentWeather.weather[0].description | titlecase }}
+      <img src="http://openweathermap.org/img/w/{{currentWeather.weather[0].icon}}.png">
+    </p>
+    <p>Temperature: {{ currentWeather.main.temp }} &#8451;</p>
   </div>
-
-  <p>this is the right page</p>
 
   <div class="weather-content__5day">
     <div class="weather-content__5day__day" *ngFor="let item of fiveDayForecast">
       <p>{{ item.dt_txt | formatDate }}</p>
-      <p>Temperature: {{ item.main.temp }}	&#8451;</p>
+      <p>Temperature: {{ item.main.temp }} &#8451;</p>
       <p>Outlook: {{ item.weather[0].main }}</p>
-      <img src="{{imageSource}}">
+      <img src="http://openweathermap.org/img/w/{{item.weather[0].icon}}.png">
       <P>Windspeed: {{ item.wind.speed }}</P>
     </div>
   </div>

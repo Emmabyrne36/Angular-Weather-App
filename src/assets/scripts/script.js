@@ -21,7 +21,7 @@ function updateMapPushPin(lat, lon, cityName, weather) {
     map.entities._primitives = []; // remove pushpin that was there
     map.entities.push(pushpin); // append new pushpin with updated location
     let centerMap = {latitude: lat, longitude: lon};
-    map.setView({ center: centerMap, zoom: 11}); // re-center the map where the pushpin is
+    map.setView({ center: centerMap, zoom: 12}); // re-center the map where the pushpin is
 
     var center = map.getCenter();
     var infobox = new Microsoft.Maps.Infobox(center, { title: 'Current weather for ' + cityName,

@@ -5,6 +5,7 @@ import { WeatherForecast } from './weatherData';
 import { Weather } from './weather';
 import { DataService } from './data.service';
 import { TitleCasePipe } from '@angular/common';
+import { DisplayWeatherComponent } from './display-weather/display-weather.component';
 
 // // declare the js function
 // declare function loadMap(): any;
@@ -18,6 +19,8 @@ declare function updateMapPushPin(lat, lon, cityName, weather): any;
 export class AppComponent implements OnInit {
   title = 'weather-app';
   @ViewChild('f') cityForm: NgForm;
+  @ViewChild(DisplayWeatherComponent) displayWeatherComponent: DisplayWeatherComponent;
+
   resultsFound = false;
   cityName: string;
 
@@ -49,10 +52,12 @@ export class AppComponent implements OnInit {
       this.lon = res.coord.lon;
       this.weatherSnapshot = [this.weatherResult.main.temp.toString(), this.weatherResult.weather[0].main];
 
-      // updateMapPushPin(this.lat, this.lon, this.cityName, this.weatherSnapshot); // update the position of the map and the pushpin
+      // To update the map pushpin
+      updateMapPushPin(this.lat, this.lon, this.cityName, this.weatherSnapshot); // update the position of the map and the pushpin
       if (this.resultsFound) {
-        // Just refresh the data
-        // TODO - call method from display weather component to refresh the weather data
+        // Just refresh the data by calling the getFiveDayData method from display weather component
+        this.displayWeatherComponent.cityName = this.cityName;
+        this.displayWeatherComponent.refreshWeather();
       } else {
         this.resultsFound = true; // to display the data as there is no error
       }

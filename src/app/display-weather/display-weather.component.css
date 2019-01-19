@@ -65,11 +65,16 @@ p {
     .weather-content__current-weather {
         grid-area: current;
         width: 100%; 
-        padding: 2rem;
+        padding: 0;
         display: flex;
         justify-content: center;
         align-items: center;
         margin: 0.25rem;
+    }
+
+    h6 {
+        margin-bottom: 0;
+        margin-top: 0.5rem;
     }
     
     .weather-content__5day {
