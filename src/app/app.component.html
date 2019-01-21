@@ -1,10 +1,10 @@
-<div class="main-container">
+<div class="main-container" id="mainContainer">
   <div class="main-container__header">
     <a>
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Weather-sun-clouds-rain.svg/1024px-Weather-sun-clouds-rain.svg.png"
         width="30" height="30" class="d-inline-block align-top" alt="">
-      Weather App
     </a>
+    <h3 style="color:white">Weather App</h3>
   </div>
   <div class="main-container__form">
     <form #f="ngForm" (ngSubmit)="onSubmit()">
@@ -18,11 +18,13 @@
     </form>
   </div>
   <div class="main-container__map">
-      <div id='myMap'></div>
+    <div id="myMap"></div>
   </div>
   <div class="main-container__main">
     <app-display-weather *ngIf="resultsFound" [cityName]="cityName"></app-display-weather>
     <!-- <app-display-weather></app-display-weather> -->
   </div>
-  <div class="main-container__footer">footer</div>
+  <div class="main-container__footer">
+    <p>&copy;Emmabyrne36 2018 <a href="https://github.com/Emmabyrne36"><img src="../assets/images/GitHub-Mark-Light-32px.png"></a></p>
+  </div>
 </div>

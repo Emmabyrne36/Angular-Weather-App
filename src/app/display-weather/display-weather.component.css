@@ -3,7 +3,7 @@
     height: 100%;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 1fr 7fr;
+    grid-template-rows: 0.5fr 7fr;
     grid-template-areas: "current"
                          "fiveday"; 
 }
@@ -27,7 +27,7 @@
 /* Sytle for each day in the 5 day forecast */
 .weather-content__5day__day {
     width: 100%;
-    background-color: lightblue;
+    background-color: #E6D1F7;
     border: 1px solid black;
     display: flex;
     flex-direction: column;
@@ -53,23 +53,18 @@ p {
         height: 100%;
         display: grid;
         grid-template-columns: 100%;
-        grid-template-rows: 20% 80%;
+        grid-template-rows: 10% 80%;
         grid-template-areas: "current"
-                             "fiveday"; 
-        /* display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        margin: 0; */
+                             "fiveday";
     }
 
     .weather-content__current-weather {
         grid-area: current;
         width: 100%; 
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0.25rem;
+        height: 100%;
+        /* display: flex; */
+        /* justify-content: center;
+        align-items: center; */
     }
 
     h6 {
@@ -78,18 +73,20 @@ p {
     }
     
     .weather-content__5day {
-        /* height: 70%; */
         grid-area: fiveday;
         display: flex;
         flex-wrap: wrap;
-        padding: 1rem;
+        padding: 0;
         justify-content: center;
     }
     
     /* Sytle for each day in the 5 day forecast */
     .weather-content__5day__day {
-        background-color: lightblue;
-        border: 1px solid black;
+        background-color: white;
+        /* background-color: #E6D1F7; */
+        /* box-shadow: 5px 7px #888888; */
+        /* border: 2px solid black; */        
+        border: none;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
@@ -97,6 +94,6 @@ p {
         padding: 0.5rem;
         margin: 0.3rem;
         width: auto;
-        border-radius: 0.5rem;
+        /* border-radius: 0.5rem; */
     }
 }

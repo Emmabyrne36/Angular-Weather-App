@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { WeatherForecast } from './weatherData';
@@ -6,6 +6,7 @@ import { Weather } from './weather';
 import { DataService } from './data.service';
 import { TitleCasePipe } from '@angular/common';
 import { DisplayWeatherComponent } from './display-weather/display-weather.component';
+import { AngularWaitBarrier } from 'blocking-proxy/built/lib/angular_wait_barrier';
 
 // // declare the js function
 // declare function loadMap(): any;
@@ -18,6 +19,7 @@ declare function updateMapPushPin(lat, lon, cityName, weather): any;
 })
 export class AppComponent implements OnInit {
   title = 'weather-app';
+  @ViewChild('weatherForecast') weatherDiv: ElementRef;
   @ViewChild('f') cityForm: NgForm;
   @ViewChild(DisplayWeatherComponent) displayWeatherComponent: DisplayWeatherComponent;
 
@@ -29,7 +31,7 @@ export class AppComponent implements OnInit {
   lon: number;
   weatherSnapshot: string[];
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService) { }
 
   weatherList = WeatherForecast.weather;
   imageSource = 'http://openweathermap.org/img/w/' + this.weatherList[0].icon + '.png';
@@ -60,6 +62,8 @@ export class AppComponent implements OnInit {
         this.displayWeatherComponent.refreshWeather();
       } else {
         this.resultsFound = true; // to display the data as there is no error
+        // Change the CSS of the grid here to fit everything nicely on the page
+        document.getElementById('mainContainer').style.gridTemplateRows = '6rem 10rem auto 25rem 2.5rem';
       }
     }, error => {
       console.error(error);
