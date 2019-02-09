@@ -3,9 +3,17 @@
     height: 100%;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 0.5fr 7fr;
-    grid-template-areas: "current"
+    /* grid-template-rows: 0.5fr 7fr; */
+    grid-template-rows: 0.3fr 0.3fr 0.2fr 6fr;
+    grid-template-areas: "current-title"
+                         "current"
+                         "fiveday-title"
                          "fiveday"; 
+}
+
+.weather-content__current-title {
+    grid-area: current-title;
+    margin: auto;
 }
 
 .weather-content__current-weather {
@@ -17,18 +25,25 @@
     align-items: center;
 }
 
+.weather-content__5day-title {
+    grid-area: fiveday-title;
+    margin: auto;
+}
+
 .weather-content__5day {
     grid-area: fiveday;
     display: flex;
     flex-wrap: wrap;
     /* justify-content: space-around; */
+    border-top: 0.5px solid #e0e0e0;
+    /* box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem #e0e0e0; */
 }
 
 /* Sytle for each day in the 5 day forecast */
 .weather-content__5day__day {
     width: 100%;
-    background-color: #E6D1F7;
-    border: 1px solid black;
+    /* background-color: #E6D1F7; */
+    border: 1px solid #e0e0e0;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -47,37 +62,64 @@ p {
 
 
 /* This is the desktop style */
-@media (min-width: 40rem) {
+@media (min-width: 45rem) {
     .weather-content {
-        width: 100%;
-        height: 100%;
+        /* width: 100%; */
+        /* height: 60%;  */
         display: grid;
-        grid-template-columns: 100%;
-        grid-template-rows: 10% 80%;
-        grid-template-areas: "current"
+        grid-template-rows: 0.5fr 0.5fr 0.3fr 4fr;
+        grid-template-areas: "current-title"
+                             "current"
+                             "fiveday-title"
                              "fiveday";
+    }
+    /* Maybe update the grid to have 5 columns? */
+
+
+    .weather-content__current-title {
+        grid-area: current-title;
+        margin: auto;
+    }
+
+    h3 {
+        margin: 0;
     }
 
     .weather-content__current-weather {
         grid-area: current;
-        width: 100%; 
-        height: 100%;
+        /* display: grid;
+        grid-template-columns: 20% 60%;
+        grid-template-rows: 100%;
+        grid-template-areas: "title" "data";
+        grid-gap: 1rem; */
+        /* margin-top: 2rem; */
+        /* width: 100%; 
+        height: 100%; */
         /* display: flex; */
         /* justify-content: center;
         align-items: center; */
     }
 
-    h6 {
-        margin-bottom: 0;
-        margin-top: 0.5rem;
+    .weather-content__current-weather img {
+        margin-right: 0.1rem;
+    }
+
+    .weather-content__5day-title {
+        grid-area: fiveday-title;
+        margin: auto;
     }
     
     .weather-content__5day {
         grid-area: fiveday;
+        width: 80%;
         display: flex;
         flex-wrap: wrap;
         padding: 0;
         justify-content: center;
+        border-top: none;
+        /* border: 0.5px solid #e0e0e0; */
+        box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem #e0e0e0;
+        margin: auto;
     }
     
     /* Sytle for each day in the 5 day forecast */
@@ -89,11 +131,12 @@ p {
         border: none;
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
+        justify-content: center;
+        /* align-items: center; */
+        margin: 0 1rem;
         padding: 0.5rem;
-        margin: 0.3rem;
-        width: auto;
+        /* margin: 0.3rem; */
+        width: auto; /* this is important to keep everything horizontal... */
         /* border-radius: 0.5rem; */
     }
 }

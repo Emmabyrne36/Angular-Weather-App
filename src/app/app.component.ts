@@ -41,6 +41,7 @@ export class AppComponent implements OnInit {
 
 
   onSubmit() {
+    console.log('searching...');
     // get the city value inputted by the user and convert it to titlecase - trim it to ensure no trailing whitespace affects API call
     this.cityName = this.toTitleCase(this.cityForm.value.userData.city).trim();
     // Call the dataService to make a call to the weather API and store the results
@@ -63,7 +64,8 @@ export class AppComponent implements OnInit {
       } else {
         this.resultsFound = true; // to display the data as there is no error
         // Change the CSS of the grid here to fit everything nicely on the page
-        document.getElementById('mainContainer').style.gridTemplateRows = '6rem 10rem auto 25rem 2.5rem';
+        // document.getElementById('mainContainer').style.gridTemplateRows = '6rem 10rem auto 25rem 2.5rem';
+        document.getElementById('mainContainer').style.gridTemplateRows = '8% 14% auto 35% 5%';
       }
     }, error => {
       console.error(error);

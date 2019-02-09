@@ -9,6 +9,10 @@
                          "map"                         
                          "footer"; 
 }
+/*  This gets changed to:
+    6rem 10rem auto 25rem 2.5rem
+    when the input field is entered
+ */
 /* fix the sizing of the main section above */
 
 .main-container__header {
@@ -26,15 +30,15 @@
 .main-container__form {
     grid-area: form;
     padding: 1rem;
-    background-color: #e7e7e7;
+    background-color: #e9e9e9;
 }
 
 .main-container__map {
     grid-area: map;
-    height: 100%;
+    /* height: 100%; */
     width: 100%;
     margin: 0;
-    display: inline-block;
+    /* display: inline-block; */
 }
 
 .main-container__footer {
@@ -42,7 +46,7 @@
     background-color: #343a40;
     color: white;
     text-align: center;
-    padding: 0.35rem;
+    padding: 0.5rem;
 }
 
 .main-container__footer p {
@@ -54,13 +58,11 @@
 }
 
 
-/*
+
 .main-container__main {
     grid-area: main;
-    width: 100%;
-    height: 100%;
 }
-*/
+
 
 /* The following styles have been moved to display-weather component */
 /* .weather-form {

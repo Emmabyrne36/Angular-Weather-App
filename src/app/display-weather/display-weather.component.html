@@ -1,12 +1,17 @@
 <div class="weather-content" *ngIf="displayData">
+  <div class="weather-content__current-title">
+      <h3>Current weather: </h3>
+  </div>
   <div class="weather-content__current-weather">
-    <h6>Current weather: </h6>
     <p>{{ currentWeather.weather[0].description | titlecase }}
       <img src="http://openweathermap.org/img/w/{{currentWeather.weather[0].icon}}.png">
     </p>
-    <p>Temperature: {{ currentWeather.main.temp }} &#8451;</p>
+    <p> Temperature: {{ currentWeather.main.temp }} &#8451;</p>
   </div>
 
+  <div class="weather-content__5day-title">
+    <h3>Five Day Forecast:</h3>
+  </div>
   <div class="weather-content__5day">
     <div class="weather-content__5day__day" *ngFor="let item of fiveDayForecast">
       <p>{{ item.dt_txt | formatDate }}</p>
